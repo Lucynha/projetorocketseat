@@ -1,77 +1,155 @@
+/*criando um seletor universal*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 *{
-    /*seletor universal*/
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+    
+}
+:root{
+    --text-color:white;
+    --bg-url:url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255,255,255,0.5);
+    --surface-color:rgba(255,255,255,0.05);
+    --surface-color-hover:rgba(255,255,255,0.02);
+    --highlight-color:rgba(255,255,255,0.1);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+.light{
+    --text-color:black;
+    --bg-url:url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0,0,0,0.5);
+    --surface-color:rgba(0,0,0,0.05);
+    --surface-color-hover:rgba(0,0,0,0.02);
+    --highlight-color:rgba(0,0,0,0.1);
+    --switch-bg-url: url(./assets/sun.svg);
 }
 body{
-    /*
-    background-image: url(./assets/bg-mobile.jpg);background-repeat: no-repeat;
-    background-position:  top center;background-size: cover;
-    
-    usei um shorthand abaixo para  substituir  todas as propriedades acima
-    */
-
-    background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+    /*background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;*/
 }
 body *{
     font-family: 'Inter', sans-serif;
-    color: #ffffff;
+    color: var(--text-color);
+
 }
+
 #container{
-    /*border: 1px solid red;*/
-    width: 360px; 
-    margin:  56px auto 0px;/*usei um shorthand*/
-    display: block;
-    padding: 0 24px;
-    
+   width: 320px;
+   margin: 56px auto 0px;
+   display: block;
+   padding: 0 24px;
 }
+
 #profile{
     text-align: center;
 }
-/*imagem dentro do profile*/
+
 #profile img{
     width: 112px;
     margin: auto;
+}
 
-} 
 #profile p{
     font-weight: 500;
-    line-height: 24px;/*altura da linha*/
+    line-height: 24px;
     margin-top: 8px;
     padding: 18px;
 }
-/*links*/
+#switch{
+    position:relative;
+    width: 64px; /*precisa ter a mesma largura do switch span*/
+    margin: 4px auto;
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border:0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left:0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+.light #switch button{
+    right:0;
+    left:initial
+
+}
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;    
+
+}
 ul{
     list-style: none;
-    display: flex;/*ajuste flexível*/
-    
-    flex-direction: column;/* modifica o display para colunas*/
-    /*gap: 8px; cria um espaçamento entre cada elemento da lista*/
-    gap: 16px;
-    
-    
-}
-ul li {
-    
-    /*border: 1px solid red;borda criada para efeito de visualização da lista que está em display inline.*/
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    padding: 24px 0;
+
 }
 ul li a{
-    /*display: flex;*/
-    align-items: center;/*alinha os   itens na linha  horizontal*/
-    justify-content: center;/*alinha os itens na linha vertical*/
+    display: flex;
+    align-items: center;
+    justify-content: center;/*alinha os links no centro*/
+    background-color: var(--surface-color);
     height: 52px;
     padding: 16px 24px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--stroke-color);
     border-radius: 8px;
-    backdrop-filter: blur(4px); /*Blur significa embaçado*/
-    -webkit-backdrop-filter: blur(4px);/*o webkit é um prefixo que é necessários para  alguns browser precisam para  que esse efeito funcione*/
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 500px;
     transition: background 0.2s;
 
 }
 ul li a:hover{
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid white;
+    background-color: var(--surface-color-hover);
+    border: 1px solid white;   
+}
+ #social-links{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 24px;
+ }
+
+ #social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+ }
+
+ #social-links a:hover{
+    background-color:var(--stroke-color);
+    padding: 16px;
+ }
+ footer{
+    padding: 24px;
+    text-align: center;
+ }
+
+ /*media queries*/
+@media(min-width:700px){
+    :root{
+        --bg-url:url(./assets/bg-desktop.jpg);
+    }
+    .light{
+        --bg-url:url(.assets/bg-desktop-light.jpg);
+    }
+}
