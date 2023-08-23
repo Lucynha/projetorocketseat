@@ -1,0 +1,77 @@
+*{
+    /*seletor universal*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /*
+    background-image: url(./assets/bg-mobile.jpg);background-repeat: no-repeat;
+    background-position:  top center;background-size: cover;
+    
+    usei um shorthand abaixo para  substituir  todas as propriedades acima
+    */
+
+    background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+}
+body *{
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+}
+#container{
+    /*border: 1px solid red;*/
+    width: 360px; 
+    margin:  56px auto 0px;/*usei um shorthand*/
+    display: block;
+    padding: 0 24px;
+    
+}
+#profile{
+    text-align: center;
+}
+/*imagem dentro do profile*/
+#profile img{
+    width: 112px;
+    margin: auto;
+
+} 
+#profile p{
+    font-weight: 500;
+    line-height: 24px;/*altura da linha*/
+    margin-top: 8px;
+    padding: 18px;
+}
+/*links*/
+ul{
+    list-style: none;
+    display: flex;/*ajuste flexível*/
+    
+    flex-direction: column;/* modifica o display para colunas*/
+    /*gap: 8px; cria um espaçamento entre cada elemento da lista*/
+    gap: 16px;
+    
+    
+}
+ul li {
+    
+    /*border: 1px solid red;borda criada para efeito de visualização da lista que está em display inline.*/
+}
+ul li a{
+    /*display: flex;*/
+    align-items: center;/*alinha os   itens na linha  horizontal*/
+    justify-content: center;/*alinha os itens na linha vertical*/
+    height: 52px;
+    padding: 16px 24px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(4px); /*Blur significa embaçado*/
+    -webkit-backdrop-filter: blur(4px);/*o webkit é um prefixo que é necessários para  alguns browser precisam para  que esse efeito funcione*/
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+
+}
+ul li a:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid white;
